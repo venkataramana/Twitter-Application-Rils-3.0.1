@@ -1,0 +1,30 @@
+<% form_for @mytweet, :url=>{:action => "create"} do |f|%>
+      <table align="center" width="75%" bgcolor="#ECECEC" style="border-radius: 10px 10px 10px 10px;" >
+                <tr>
+                        <td style="color:#999999;font-family:arial; font-size:20px; padding:3px 10px 3px 10px;  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5)">
+                                <b> What's happening? </b>
+                        </td>
+                </tr>
+
+                <tr>
+                        <td width="75%" style="font-family:arial; padding:3px 10px 3px 10px; border-radius: 10px 10px 10px 10px;">
+
+                                <%= text_area_tag(:post, nil, :size => "80x3", :disabled => false, :placeholder=> "Start tweeting here...") %>
+                        </td>
+                        <td>
+                               <%= image_tag("sbird.png", :size => "40x30") %>
+                        </td>
+                </tr>
+
+                <tr>
+                        <td width="80%" style="text-align:right; color:#999999">
+                                max: 140
+                        </td>
+                        <td>
+                                 <%= f.submit "Tweet", :remote=>:true%>
+                        </td>
+                <tr>
+    <% end %>
+
+ <%= render :partial=>"tweet", :locals=>{:mytweet=>@mytweets}%>
+

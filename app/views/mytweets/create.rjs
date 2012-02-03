@@ -1,0 +1,3 @@
+#<%#= render :partial=>"tweet", :locals=>{:mytweet=>@mytweets}%>
+ page.replace_html "tweet", :partial => "tweet",:locals=>{:@responses=>@responses}
+

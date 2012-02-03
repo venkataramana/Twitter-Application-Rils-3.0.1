@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyfirstOauth</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/bird.png">
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%#= javascript_include_tag 'rails'%>
+  <%= csrf_meta_tag %>
+</head>
+<body bgcolor="#DDDDDD">
+
+        <table  style="background-image:url(/images/right.png); margin-top:-9px; background-attachment: fixed;" width="100%" height="6%">
+                </tr>
+                        <td width="22%">
+                                &nbsp;
+                        </td>
+                        <td width="7%">
+                               <%=link_to image_tag("twitter.jpeg", :size => "100x30", :alt => "TWITTER"), "http://www.twitter.com"%>
+                        </td>
+                        <td width="10%">
+                                <%= image_tag("bird.png", :size => "40x30", :alt => "TWITTER")%>
+                        </td>
+                        <td width="24%" style="text-align:center; color:#FFFFFF;font-family:arial; font-size:20px; text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6)">
+                                    <b> Sample Twitter Application </b>
+                        </td>
+                        <td width="100px">
+                                &nbsp
+                        </td>
+                        <td width="5%" style="font-family:arial; font-color:yellow">
+                               <%= link_to image_tag("logout3.jpeg", :size => "80x30"), "", :method=>:delete%>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                </tr>
+        </table>
+        <table width="100%" style="background-image:url(/images/bg.png); background-repeat:no-repeat;background-attachment: fixed;background-color : #C0DEED">
+                <tr>
+                        <td valign="top" >
+                                <table width="75%" align="center">
+                                        <tr> <td>
+                                                <%= yield %>
+                                        </td> </tr>
+                        </td>
+                </tr>
+         </table>
+
+
+</body>
+</html>
+

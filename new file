@@ -1,0 +1,34 @@
+
+    1)HTTP Authentication:
+
+	    A client requests access to a protected resource.
+	    If the client is unauthenticated, the server redirects the client to a login page.
+	    The client submits the login form to the server.
+	    If the login succeeds, the server redirects the client to the resource. If the login fails, the client is redirected to an error page.
+
+	Form-based authentication is not particularly secure. In form-based authentication, the content of the user dialog box is sent as plain text,
+	and the target server is not authenticated. This form of authentication can expose your user names and passwords unless all connections are over SSL.
+	If someone can intercept the transmission, the user name and password information can easily be decoded.
+
+	before_filter :authenticate
+
+	protected
+	 def authenticate
+		authenticate_or_request_with_http_basic do |username, password|
+			username == "Username" && password == "Password"
+		end
+	 end
+
+	2.)OAuth :
+        OAuth is for granting the permissions from another application through proper credentials, and proper access calls.
+
+        OAuth Flow :
+                1) Firstly we have to register in the application provider with any application name.
+                2) Then we will get consumer_key and consumer_access_key
+                3) We will create an oauth object by using these two keys apart from provider name.
+                4) Now we will get a request token using oauth object by passing a call_back_url {Call_back_url can be any valid url}
+                 5) It will redirect us to authorize_url provided by the provider in which we get "username" and "password" fields
+                 6) After entering proper valid credentials , we will get redirected to the call_back_url
+                 7) Now the provider will give the oauth_token
+                 8) Finally we get access_token by calling proper API call.
+

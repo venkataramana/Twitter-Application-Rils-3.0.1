@@ -1,0 +1,33 @@
+<table align="center" width="75%" style="background:#ECECEC;  border-radius: 10px 10px 10px 10px">
+        <tr>
+                <td width="30%" style="color:#5AA5BC; font-size:20px; padding:3px 10px 3px 10px; font-family:arial; text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5)">
+                <b>Posted tweets: </b>
+                </td>
+                <td style="color:#FF5422; font-size:15px; padding:3px 10px 3px 10px; font-family:arial; text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5)">
+                        Notice:<%= text_field_tag("", "#{flash[:notice]}", :disabled => true, :size=>"30x10")%>
+                </td>
+         </tr>
+</table>
+
+ <%@main_arr.each do |k,v|%>
+ <table align="center" width="75%" style=" font-family:arial;background:#D6DBDA;  border-radius: 10px 10px 10px 10px;">
+        <tr>
+                <td width="3%" style="background:#D1A9CE; border-radius: 5px 5px 5px 5px;">
+                       <%= image_tag("sbird.png", :size => "30x20") %>
+                </td>
+                <td width="92%" style="font-size:14px;background: -moz-linear-gradient(center top , #338D93 0%, #96CACE 100%) repeat scroll 0 0 transparent;
+                                                         -webkit-gradient(linear, left top, left bottom, color-stop(60%,white), color-stop(100%,#E5E5E5));
+                                                         border: 1px solid #999999;padding:10px 20px; border-radius: 5px 5px 5px 5px;">
+
+                    <sup style="color:#2A4C4A; font-size:15px; margin:right">
+                          Posted <%= time_ago_in_words(k["created_at"]) %> ago...
+                  </sup> </br>
+                         <%=k["text"]%>
+                </td>
+                <td style="background-color:#D1A9CE; border-radius: 5px 5px 5px 5px;">
+                         <%= link_to image_tag("play.gif", :size => "35x35"), mytweet_path(k["id"]), :method=>:delete, :remote=>:true, :confirm=> "U wanna delete?", :title=>"Delete"%>
+                </td>
+        </tr>
+</table>
+<%end%>
+

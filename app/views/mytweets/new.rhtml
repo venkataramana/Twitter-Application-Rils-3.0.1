@@ -1,0 +1,5 @@
+<% form_for @mytweet, :url=> {:action=>"create"} do |f|%>
+        Post :<%= f.text_field :post%>
+        <%= f.submit "Post"%>
+<%end%>
+
